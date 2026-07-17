@@ -3,3 +3,45 @@ spring:
     url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}
     username: ${DB_USER}
     password: ${DB_PASSWORD}
+
+app:
+  jwt:
+    private-key: |-
+      ${JWT_PRIVATE_KEY:-----BEGIN PRIVATE KEY-----
+      MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC3b2OKdOJF1K+s
+      BaKGofL6vt4teW/3okOqswycMC/z3lr4dRGe6tgoebJp+7HtcmP3rTJ4JS6FnMYI
+      2zCXFJ/rFUuvQd3Mri6lI/U/WFp/RnQ/AbCLggxlx6wQLFV2KtNclMCYHiEBrxQ8
+      kQFTC0yHghPbHSxNcZbcUaPdz2IaZOOvdySsPJiWTz6GWPfCyIEru01HIOxpoDKe
+      sLDjeTupiSiCJY8dIULi9zwnD62ZUN1V980zXJD9lZI8iku9CIDAVsTgKhmJAZ8L
+      JwgpjV8sAXQ6rQt2hIEnfh89dclHkcautCgXbiT/n3kL7cMEtpBwFQI3GsA3Lidw
+      zFr/l6XzAgMBAAECggEABl+LYNMgzXZPSDXF6NGVpJqfE4tllYAAw9yGsqKF9/4g
+      wQMoQpI8QmPADCifjPVtfbx5xWzdSe0hgEtFS+p+h+dsgsFSGHtwyXIPYk0Kj+N9
+      xHalkKNLFPo0AzfXHEzunQfaDS72zJ0todET77Ozy/17/R/tWx94M11uyRUcfng1
+      wuS9sa7QxJDP3+8Ukb774q8bJTPckx+FqgyLeYx9djQ2atmwubSfp24ju+tMcDPm
+      zA38r3C/+6w+1+vpVHtm7Pl/ZOgAxNS91FW9GsJ2pxxrayybGNN3MxNfkjTSwhY5
+      6sK3DDkuJtvik5gBi3bY11jAfpEDndegygnhoRaySQKBgQDvZiHAUEYGrmgZkKwT
+      2bzZLcSY6ZQsGOMQi7FBJ7LOQ++Z+KnVYHzSuIoASor8eZQ5xpKOOXXjDHAI9mo0
+      3pKBWJtG3TFQavBIpI0bDIdnA5ah75fo2zhV41al4ptVmp3Q3DvXaX6Uf+BFFyQe
+      B4W0Q2QLRBGhY9ge0O3AJQyz7QKBgQDEJ8X6vbgCSqmYrWOHvQYTgtr0MLCkGPab
+      qGRWpsFBImd0yKf1Ksh8wG4Amts4xNs4MhqfZFJzbnqWLzeryu2wNo2xO9Do9BMP
+      5kGezpjBOmXQpwvistgjyPr99JyB9tIBoO4pcuKXzW5RW9G5SSYIVlXqUlFkNcvJ
+      s7GruKpFXwKBgE0HQK7fZVi6/1XSffu5IJGEr3BAH+P8cfsd53++ZUMHCu4w23yD
+      mkY3CHhFg+juuanJYdiPVoYit12647t1LhCeUQABJd/pOL027QwaAOs9dVdPf0J2
+      Xu8LwhKIElD9+e99HWgXUpo3dxLj+kQLSZMR5/vUABQ8ywpHUWh0w1yVAoGAd7gK
+      tnmaWBO3pQ6WQ59TmQ7xkb4x4UW3JdPFwbkvFBDqcbWSBSliiflsagQZrnE/lvHF
+      m+jABeG1Afq5kKlfHoB9RGHMpJFrHPYcsM9JHg4FXC7IK0mab2TYA62K5Ct/iyzs
+      jvGmaJ4iKZfPzbVeeBIxh71MHcxTn7yDwNoJWiMCgYEAoJBz3ZxVDwkLihikg7fR
+      jpoduSmvzvhwCq78AfJEQOkcyM2LBfiSMHkpidLl9wb6qf8xr/Nw2ntk9NWiiBQt
+      QKz/S+Z1rX2Z4dp1RoTlB3kUW9Hzx0NqyqAhkSvt32FySblmBTffLD1BfopBfAW2
+      M0eaUMNPGSlCOTr/owEeeM0=
+      -----END PRIVATE KEY-----}
+    public-key: |-
+      ${JWT_PUBLIC_KEY:-----BEGIN PUBLIC KEY-----
+      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt29jinTiRdSvrAWihqHy
+      +r7eLXlv96JDqrMMnDAv895a+HURnurYKHmyafux7XJj960yeCUuhZzGCNswlxSf
+      6xVLr0HdzK4upSP1P1haf0Z0PwGwi4IMZcesECxVdirTXJTAmB4hAa8UPJEBUwtM
+      h4IT2x0sTXGW3FGj3c9iGmTjr3ckrDyYlk8+hlj3wsiBK7tNRyDsaaAynrCw43k7
+      qYkogiWPHSFC4vc8Jw+tmVDdVffNM1yQ/ZWSPIpLvQiAwFbE4CoZiQGfCycIKY1f
+      LAF0Oq0LdoSBJ34fPXXJR5HGrrQoF24k/595C+3DBLaQcBUCNxrANy4ncMxa/5el
+      8wIDAQAB
+      -----END PUBLIC KEY-----}

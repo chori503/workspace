@@ -12,3 +12,45 @@ management:
 logging:
   level:
     org.hibernate.SQL: debug
+
+app:
+  jwt:
+    private-key: |
+      -----BEGIN PRIVATE KEY-----
+      MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCycQCrOucTq5kM
+      V+DOf5oBT4kXwQXgWSAMfYCiFj64ShJaoHZgzBT26pKEvzjNPMFjwDA7EMtPtEcx
+      jvKGzXewyruJLu4QQb/XOHBvsx5ze7jMHD9gD4QxULBWugWCzDRYvYnRHRBODrN4
+      j8ai3yzGAgTIYHFbTd/o3rQaVuyUDckdKR1VtvFT63AjUxbjYLM+KEbJ1gvaS0eq
+      hXIsfm+knflBd611lPUnN3CzdtPxAdFI6/Y67xZ1sSUyX1ylOTHTlPSzkfBTM53x
+      m3URnJniyI0ihXWtBo0YUN7QMAJdEGDFbzpNv7VcHf7q96h2/QFBdOdOjQNEvLhq
+      1JJcbLoPAgMBAAECggEAB+fQv0VPSoRONglIqO1nTcqPyNEg6QUZ0ePXiJbStYh2
+      krRMOlKgVSYkUqREKHeaG8i+ekdusnvKsavjG8zLkjYRI+1D182J6ceS16gIX9Zp
+      5AUWW7OkSCkKfvUj3F0erpXLHswaVlL5aYx5IOshSS56tsPrEb/7/Q2szgPu3EpD
+      DznAGA8E+BwyMhm5rhCyjbVNcUSjrCcM3KuuCfo1PqxWuKjswVzTD8p7a6APseUl
+      Lc9WpxyLugF9XZjbPScJF8HVm+i0sJhyFYzv/Y4XfDNfCOgi/bizoDvoE+0a1Z8M
+      Ddvk9e20Q1OCpz+qi+0I/bJBQr+UJmmhEXRBy7x9zQKBgQDoSe2x6qexoL8KXNN+
+      FyDjH4em+M3om9DTdi+Kr1ElD2fYxkzgAAw14Qe+hwkPXmPEihn2yfu5VQmqq+zj
+      8/0K/MOrdPoJomPIkdNHDvd6SsfjtL5GTDUFTSIewDtHRUYpUQpACWGRsqK2TRyP
+      zq1uG8BSnkiRr6hXHxkGRrOC1QKBgQDEp/UqGfpOXmJJRT+8yhmUvu6kFiZAtgQ3
+      qBkuXQRzBN7ke1/uoSvHdrhAeDZH8vTj4f+Vr7W0GieZpC9NAOp8NJeXTA43QEBo
+      +Ft2kw8wDkAfgd2W0D9nLTlkKRFzern6XIyU40dUozKLsNQESD42dfZFVfOwffRg
+      UZE0LjWTUwKBgBdVLbocXwHZqrbowhm9SwFlbmPYRB6kYCKNkZL1r0nwtTayHJC3
+      kIJs+zEpMUDI826PjLIccduY7iKlqGLxZC6RWzpCwsbq9+jytO1DVJqFHnUB98bp
+      6r2AlPfPyWSMUdLeoA/0oUdYUT3Mmxza3tLbmMLzwUhZA6jUp9fYjDmNAoGAaRP9
+      sdNTpdBU4CW6Wtv6MzqaNN8I7YbUVhDh854MJJEzsA4kQlOoGtpatUgGaQduxt0Z
+      Phg3FNbs1fGevJyCrn9DiLpA1lDkmbIq3P7THLBgnvU7O7xmRHEru1MeWf/3o8kT
+      7PJMSPMyrOV9RBR9+YeqYX39yg5jJ5wt5B3UzrUCgYAgNd/bc0b4we5hh6/FzOof
+      QJbubn5sCmSQn2BsweheYCqJm67N2vbNzM/2R9t4bsTwcNjwNgSxlJ1TW8MM4G5L
+      vWrMw3MUmRmgm/8sdSBzJAogzkBKwhNPWyAzTtAUYBEAeKoHQKUOUJepg1poQ8Sj
+      MnPXATaHn8QjrJNDBf5aDQ==
+      -----END PRIVATE KEY-----
+    public-key: |
+      -----BEGIN PUBLIC KEY-----
+      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsnEAqzrnE6uZDFfgzn+a
+      AU+JF8EF4FkgDH2AohY+uEoSWqB2YMwU9uqShL84zTzBY8AwOxDLT7RHMY7yhs13
+      sMq7iS7uEEG/1zhwb7Mec3u4zBw/YA+EMVCwVroFgsw0WL2J0R0QTg6zeI/Got8s
+      xgIEyGBxW03f6N60GlbslA3JHSkdVbbxU+twI1MW42CzPihGydYL2ktHqoVyLH5v
+      pJ35QXetdZT1Jzdws3bT8QHRSOv2Ou8WdbElMl9cpTkx05T0s5HwUzOd8Zt1EZyZ
+      4siNIoV1rQaNGFDe0DACXRBgxW86Tb+1XB3+6veodv0BQXTnTo0DRLy4atSSXGy6
+      DwIDAQAB
+      -----END PUBLIC KEY-----

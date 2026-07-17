@@ -36,7 +36,7 @@ public class JwtKeyProvider {
             PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(decode(pem));
             return KeyFactory.getInstance("RSA").generatePrivate(spec);
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-            throw new IllegalStateException("Invalid RSA private key", e);
+            throw new IllegalStateException("Llave privada RSA inválida", e);
         }
     }
 
@@ -45,7 +45,7 @@ public class JwtKeyProvider {
             X509EncodedKeySpec spec = new X509EncodedKeySpec(decode(pem));
             return KeyFactory.getInstance("RSA").generatePublic(spec);
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-            throw new IllegalStateException("Invalid RSA public key", e);
+            throw new IllegalStateException("Llave pública RSA inválida", e);
         }
     }
 

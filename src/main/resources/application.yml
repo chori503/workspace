@@ -21,3 +21,7 @@ management:
     web:
       exposure:
         include: health,info,metrics
+
+app:
+  jwt:
+    expiration-minutes: 60
