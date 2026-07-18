@@ -24,4 +24,17 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
                                @Param("activeStatuses") List<ReservationStatus> activeStatuses,
                                @Param("start") OffsetDateTime start,
                                @Param("end") OffsetDateTime end);
+
+    @Query(value = """
+            SELECT r.space_id AS spaceId,
+                   SUM(EXTRACT(EPOCH FROM (LEAST(r.end_datetime, :end) - GREATEST(r.start_datetime, :start))) / 3600.0) AS reservedHours
+            FROM reservation r
+            WHERE r.status IN (:statuses)
+              AND r.start_datetime < :end
+              AND r.end_datetime > :start
+            GROUP BY r.space_id
+            """, nativeQuery = true)
+    List<SpaceOccupiedHoursProjection> sumReservedHoursBySpace(@Param("statuses") List<String> statuses,
+                                                                @Param("start") OffsetDateTime start,
+                                                                @Param("end") OffsetDateTime end);
 }

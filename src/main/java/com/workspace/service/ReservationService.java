@@ -17,6 +17,7 @@ import com.workspace.mapper.ReservationMapper;
 import com.workspace.repository.ReservationRepository;
 import com.workspace.repository.SpaceRepository;
 import com.workspace.repository.UserRepository;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.Authentication;
@@ -76,6 +77,7 @@ public class ReservationService {
     }
 
     @Transactional
+    @CacheEvict(value = "occupancyReport", allEntries = true)
     public ReservationResponse create(ReservationRequest request) {
         AppUser targetUser = resolveTargetUser(request.userId());
         Space space = spaceRepository.findById(request.spaceId())
@@ -127,6 +129,7 @@ public class ReservationService {
     }
 
     @Transactional
+    @CacheEvict(value = "occupancyReport", allEntries = true)
     public ReservationResponse cancel(Long id) {
         Reservation reservation = getOrThrow(id);
         requireOwnerOrAdmin(reservation);

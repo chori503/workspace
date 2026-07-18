@@ -10,6 +10,7 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -75,6 +76,13 @@ public class GlobalExceptionHandler {
                                                                   HttpServletRequest request) {
         log.warn("Intento de inicio de sesión fallido en {}: {}", request.getRequestURI(), ex.getMessage());
         return build(HttpStatus.UNAUTHORIZED, ex.getMessage(), request, null);
+    }
+
+    @ExceptionHandler(MissingServletRequestParameterException.class)
+    public ResponseEntity<ErrorResponse> handleMissingParameter(MissingServletRequestParameterException ex,
+                                                                  HttpServletRequest request) {
+        return build(HttpStatus.BAD_REQUEST,
+                "El parámetro '" + ex.getParameterName() + "' es obligatorio", request, null);
     }
 
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
