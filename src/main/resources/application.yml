@@ -45,3 +45,19 @@ app:
     welcome:
       subject: "¡Bienvenido a Workspace!"
       body: "Tu cuenta fue creada exitosamente."
+    reservation-confirmed:
+      subject: "Reserva confirmada"
+      body: "Tu reserva fue confirmada exitosamente."
+  payment:
+    base-url: https://vk2mg.wiremockapi.cloud
+    connect-timeout: 2s
+    read-timeout: 3s
+  reservation:
+    max-advance-days: 15
+    business-hours:
+      monday-to-saturday:
+        open-hour: 8
+        close-hour: 20
+      sunday:
+        open-hour: 9
+        close-hour: 19

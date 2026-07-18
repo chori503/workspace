@@ -1,5 +1,6 @@
 package com.workspace.exception;
 
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.List;
 
@@ -21,7 +23,17 @@ public class GlobalExceptionHandler {
     private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<ErrorResponse> handleMalformedBody(HttpServletRequest request) {
+    public ResponseEntity<ErrorResponse> handleMalformedBody(HttpMessageNotReadableException ex,
+                                                              HttpServletRequest request) {
+        if (ex.getCause() instanceof InvalidFormatException invalidFormatEx
+                && invalidFormatEx.getTargetType() == LocalDate.class) {
+            String field = invalidFormatEx.getPath().isEmpty()
+                    ? "fecha"
+                    : invalidFormatEx.getPath().get(invalidFormatEx.getPath().size() - 1).getFieldName();
+            return build(HttpStatus.BAD_REQUEST,
+                    "El campo '" + field + "' tiene un formato inválido. El formato esperado es: yyyy-MM-dd",
+                    request, null);
+        }
         return build(HttpStatus.BAD_REQUEST, "Body inválido", request, null);
     }
 
@@ -50,6 +62,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<ErrorResponse> handleAccessDenied(AccessDeniedException ex, HttpServletRequest request) {
         return build(HttpStatus.FORBIDDEN, ex.getMessage(), request, null);
+    }
+
+    @ExceptionHandler(OverlappingReservationException.class)
+    public ResponseEntity<ErrorResponse> handleOverlappingReservation(OverlappingReservationException ex,
+                                                                       HttpServletRequest request) {
+        return build(HttpStatus.CONFLICT, ex.getMessage(), request, null);
     }
 
     @ExceptionHandler(InvalidCredentialsException.class)
