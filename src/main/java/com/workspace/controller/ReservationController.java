@@ -14,8 +14,29 @@ import java.util.List;
 @RequestMapping("/api/reservations")
 public class ReservationController {
 
+    private final ReservationService reservationService;
+
+    public ReservationController(ReservationService reservationService) {
+        this.reservationService = reservationService;
+    }
+
+    @GetMapping
+    public List<ReservationResponse> findAll() {
+        return reservationService.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public ReservationResponse findById(@PathVariable Long id) {
+        return reservationService.findById(id);
+    }
+
     @PostMapping
     public ResponseEntity<ReservationResponse> create(@Valid @RequestBody ReservationRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED).body(reservationService.create(request));
     }
 
+    @PostMapping("/{id}/cancel")
+    public ReservationResponse cancel(@PathVariable Long id) {
+        return reservationService.cancel(id);
+    }
+}

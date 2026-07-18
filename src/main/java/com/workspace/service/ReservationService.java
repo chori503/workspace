@@ -61,6 +61,19 @@ public class ReservationService {
         this.emailProperties = emailProperties;
     }
 
+    public List<ReservationResponse> findAll() {
+        AppUser caller = currentUser();
+        List<Reservation> reservations = caller.getRole() == Role.ADMIN
+                ? reservationRepository.findAll()
+                : reservationRepository.findByUserId(caller.getId());
+        return reservations.stream().map(reservationMapper::toResponse).toList();
+    }
+
+    public ReservationResponse findById(Long id) {
+        Reservation reservation = getOrThrow(id);
+        requireOwnerOrAdmin(reservation);
+        return reservationMapper.toResponse(reservation);
+    }
 
     @Transactional
     public ReservationResponse create(ReservationRequest request) {
@@ -114,6 +127,13 @@ public class ReservationService {
     }
 
     @Transactional
+    public ReservationResponse cancel(Long id) {
+        Reservation reservation = getOrThrow(id);
+        requireOwnerOrAdmin(reservation);
+        reservation.setStatus(reservation.getStatus().cancel());
+        reservationRepository.saveAndFlush(reservation);
+        return reservationMapper.toResponse(reservation);
+    }
 
     private OffsetDateTime validateSchedule(ReservationRequest request) {
         if (request.endTime() <= request.startTime()) {
