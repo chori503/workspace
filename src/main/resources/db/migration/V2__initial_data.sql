@@ -1,9 +1,16 @@
 -- Insert de usuarios iniciales
 -- Contraseña:123456
+-- Admin
 INSERT INTO public.app_user (email,"password",full_name,"role")
 VALUES ('jorgearomero123@gmail.com','$2a$10$p2ZIu07bPUHBN/uA3bUilupeZn1GQqfox7LsEQM3QKZl1wfRYb/Sa','Jorge Romero','ADMIN');
 INSERT INTO public.app_user (email,"password",full_name,"role")
+VALUES ('andrea@gmail.com','$2a$10$p2ZIu07bPUHBN/uA3bUilupeZn1GQqfox7LsEQM3QKZl1wfRYb/Sa','Andrea Hernández','ADMIN');
+
+--User
+INSERT INTO public.app_user (email,"password",full_name,"role")
 VALUES ('albertoguzman@gmail.com','$2a$10$p2ZIu07bPUHBN/uA3bUilupeZn1GQqfox7LsEQM3QKZl1wfRYb/Sa','Alberto Guzman','USER');
+INSERT INTO public.app_user (email,"password",full_name,"role")
+VALUES ('juan@gmail.com','$2a$10$p2ZIu07bPUHBN/uA3bUilupeZn1GQqfox7LsEQM3QKZl1wfRYb/Sa','Juan Perez','USER');
 
 -- Insert de espacios iniciales
 INSERT INTO public.space (name, type, capacity, location, floor, hourly_rate, status)

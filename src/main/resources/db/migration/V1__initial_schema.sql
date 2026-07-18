@@ -40,7 +40,7 @@ CREATE TABLE reservation
     start_datetime    TIMESTAMPTZ NOT NULL,
     end_datetime      TIMESTAMPTZ NOT NULL,
     status            VARCHAR(30) NOT NULL DEFAULT 'PENDING'
-        CHECK (status IN ('PENDING', 'PENDING_PAYMENT', 'CONFIRMED', 'CANCELLED', 'COMPLETED')),
+        CHECK (status IN ('PENDING', 'PENDING_PAYMENT', 'CONFIRMED', 'CANCELLED', 'COMPLETED', 'PAYMENT_DECLINED')),
     payment_reference VARCHAR(255),
     total_price       NUMERIC(10, 2),
     created_at        TIMESTAMPTZ NOT NULL DEFAULT now(),
