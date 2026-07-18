@@ -25,3 +25,7 @@ management:
 app:
   jwt:
     expiration-minutes: 60
+  email:
+    welcome:
+      subject: "¡Bienvenido a Workspace!"
+      body: "Tu cuenta fue creada exitosamente."
